@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+</head>
+<body>
+    <h1>HTTP 方法：{{ method }}</h1>
+    <form method="post">
+        <div>
+            <label for="username">用户名：</label>
+            <input type="text" name="username" placeholder={{ U }} >
+        </div>
+        <div>
+            <label for="password">密    码：</label>
+            <input type="password" name="password" placeholder={{ P }} >
+        </div>
+        <div>
+            <input type="submit" name="提交">
+        </div>
+    </form>
+    <h1>username: {{ U }}</h1>
+    <h1>password: {{ P}}</h1>
+</body>
+</html>

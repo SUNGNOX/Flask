@@ -1,0 +1,10 @@
+<html>
+	<head>
+		<title>frame</title>
+	</head>
+	<frameset rows="1000,2000,1000" frameborder="1" border="1">
+		<frame name="top" src="http://rs.xidian.edu.cn/portal.php"/>
+		<frame name="mid" src="http://bbs.xidian.edu.cn/"/>
+		<frame name="bottom" src={{ url_for('.bottom') }} />
+	</frameset>
+</html>

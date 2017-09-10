@@ -1,0 +1,56 @@
+{% extends 'base.html' %}<!-- 加载模板 -->
+{% import 'macro/_macro.html' as inm %}<!-- 加载宏页 -->
+
+<!-- 定义宏input -->
+{# {% macro input(name, type='text', size='500', value='') %}#}
+ <!--   <input name="{{ name }}"
+           type="{{ type }}"
+           size="{{ size }}"
+           value="{{ value }}"
+    />-->
+{# {% endmacro %} #}
+
+{% block head %}{% endblock %}
+{% block title %}{{ name }}{% endblock %}
+
+{% block content %}
+<h1>测试jinja语法!</h1>
+
+    <form>
+        <div>
+            <label for="username">用户名</label>
+            {{ inm.input('username') }}<!-- 引用宏input -->
+        </div>
+        <div>
+            <label for="username">密**码</label>
+            {{ inm.input('passwd', 'passwd') }}<!-- 引用宏input -->
+        </div>
+    </form>
+{# 设置变量 #}
+{% set links=[
+{'href':url_for('.serve'), 'label':'Serve'},
+{'href':url_for('.about'), 'label':'About'},
+{'href':url_for('.context'), 'label':'Context'}
+] %}
+{# 循环条件测试语句 #}
+{% for link in links %}
+    {% if not loop.first %}
+        |
+    {% endif %}
+    {% if link is current_url %}
+        <a href="http://www.baidu.com">百度 </a>
+    {% else %}
+            <a href="{{link.href}}">{{ link.label }}</a>
+    {% endif %}
+{% endfor %}
+    <h1>{{ self.title() }}</h1><!-- 访问title变量 -->
+{% endblock content %}
+
+{% block header %}
+<h1>header</h1>
+{% endblock header %}
+
+{% block foot %}
+    <h3>footer</h3>
+    {{ super() }}<!-- 继承模板上的内容 -->
+{% endblock foot %}

@@ -1,0 +1,41 @@
+{% extends "bootstrap/base.html" %} <!-- base.html模板继承自bootstrap/base.html -->
+{% block title %}Flask{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" >
+{% endblock %}
+
+{% block navbar %}
+<!--div class="navbar navbar-inverse" role="navigation"-->
+<div class="container">
+<!--div class="navbar-header"-->
+
+<!--button type="button" class="navbar-toggle" data-toggle="collapse" data-taget=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<sapn class="icon-bar"></sapn>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button-->
+<a class="navbar-brand" href="/">Flasky</a>
+<!--/div-->
+
+</div>
+<!--/div-->
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+{% block page_content %}
+    <h2>这里是首页，welcome</h2>
+    Technorati Tags: flask
+{% endblock page_content %}
+</div>
+
+{% endblock content %}
+
+<!--title、navbar、content都是bootstrap/base.html中定义的块。navbar是显示导航栏，其中的代码比较多，作用是添加Flasky和Home两个链接-->
+<!--以后的html页面直接继承base.html就可以了-->

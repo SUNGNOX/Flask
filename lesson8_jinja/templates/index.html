@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+<h1>测试jinja语法!</h1>
+{# 设置变量 #}
+{% set links=[
+{'href':url_for('.serve'), 'label':'Serve'},
+{'href':url_for('.about'), 'label':'About'},
+{'href':url_for('.context'), 'label':'Context'}
+] %}
+{# 循环条件测试语句 #}
+{% for link in links %}
+    {% if not loop.first %}
+        |
+    {% endif %}
+    {% if link is current_url %}
+        <a href="http://www.baidu.com">百度 </a>
+    {% else %}
+            <a href="{{link.href}}">{{ link.label }}</a>
+    {% endif %}
+{% endfor %}
+</body>
+</html>

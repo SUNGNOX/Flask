@@ -1,0 +1,27 @@
+<!-- 模板页 -->
+{% extends 'bootstrap/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body>
+    {% block navbar %}
+        {{ super() }}
+        {{ nav.top.render() }}
+    {% endblock %}
+    <header>{% block header %}{% endblock %}</header>
+    <div>{% block content %}{% endblock %}</div>
+    {% set hr="下面是分隔符！" %}
+    <footer >{% block foot scoped%}<!-- scoped引用外部的变量 -->
+        {{ hr }}
+        <hr>
+        {% include 'include/_footer.html' %}<!-- 引用包含页 -->
+<!--        copyright 2017 by sun.-->
+    {% endblock %}</footer>
+</body>
+</html>

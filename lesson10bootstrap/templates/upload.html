@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}服务页{% endblock %}
+{% block content %}
+    <div class="container">
+        {# {{ wtf.quick_form(uploadform) }} #}
+        <form method="post" enctype="multipart/form-data">
+            {# {{ uploadform.file() }} #}
+            {# {{ uploadform.submit() }} #}
+            <!--input type="file" name="file" >
+            <input type="submit" name="submit"-->
+        </form>
+    </div>
+{% endblock content %}
